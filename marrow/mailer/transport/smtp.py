@@ -69,7 +69,7 @@ class SMTPTransport(object):
     def connect_to_server(self):
         if self.tls == 'ssl': # pragma: no cover
             connection = SMTP_SSL(local_hostname=self.local_hostname, keyfile=self.keyfile,
-                                  certfile=self.certfile, timeout=self.timeout)
+                                  certfile=self.certfile, timeout=self.timeout, host=self.host)
         else:
             connection = SMTP(local_hostname=self.local_hostname, timeout=self.timeout)
 
